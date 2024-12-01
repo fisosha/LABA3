@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Laba3.UI.LectureFormPage"
+             Title="Додати / Редагувати лекцію">
+
+    <VerticalStackLayout Padding="10">
+        <!-- Поля для введення даних -->
+        <Entry x:Name="DayEntry" Placeholder="День тижня" />
+        <Entry x:Name="TimeEntry" Placeholder="Час лекції (наприклад, 10:00)" />
+        <Entry x:Name="LecturerEntry" Placeholder="Викладач" />
+        <Entry x:Name="DepartmentEntry" Placeholder="Кафедра" />
+        <Entry x:Name="RoomEntry" Placeholder="Аудиторія" />
+
+        <!-- Список студентів -->
+        <Label Text="Студенти" FontAttributes="Bold" />
+        <CollectionView x:Name="StudentsListView" HeightRequest="150">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <HorizontalStackLayout>
+                        <Label Text="{Binding Name}" VerticalOptions="Center" />
+                        <Label Text="{Binding Group}" VerticalOptions="Center" Margin="10,0,0,0" />
+                        <Button Text="Видалити" Clicked="OnDeleteStudentClicked" CommandParameter="{Binding .}" />
+                    </HorizontalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Додати студента -->
+        <HorizontalStackLayout>
+            <Entry x:Name="StudentNameEntry" Placeholder="Ім'я студента" />
+            <Entry x:Name="StudentGroupEntry" Placeholder="Група" />
+            <Button Text="Додати" Clicked="OnAddStudentClicked" />
+        </HorizontalStackLayout>
+
+        <!-- Кнопки управління -->
+        <HorizontalStackLayout Margin="0,20,0,0">
+            <Button Text="Зберегти" Clicked="OnSaveClicked" />
+            <Button Text="Скасувати" Clicked="OnCancelClicked" />
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+
+</ContentPage>

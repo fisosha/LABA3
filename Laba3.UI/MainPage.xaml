@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Laba3.UI.MainPage"
+             Title="Schedule Manager">
+
+    <VerticalStackLayout Padding="10">
+        <!-- Кнопки управління -->
+        <HorizontalStackLayout>
+            <Button Text="Відкрити JSON" Clicked="OnOpenJsonClicked" />
+            <Button Text="Зберегти JSON" Clicked="OnSaveJsonClicked" />
+            <Button Text="Додати лекцію" Clicked="OnAddLectureClicked" />
+            <Button Text="Про програму" Clicked="OnAboutClicked" />
+        </HorizontalStackLayout>
+
+        <!-- Поле пошуку -->
+        <HorizontalStackLayout>
+            <Entry x:Name="SearchEntry" Placeholder="Введіть пошуковий запит" />
+            <Button Text="Шукати" Clicked="OnSearchClicked" />
+        </HorizontalStackLayout>
+
+        <!-- Таблиця з даними -->
+        <ScrollView>
+            <Grid x:Name="ScheduleGrid"
+                  ColumnDefinitions="*,*,*,*,*,*"
+                  RowSpacing="5"
+                  ColumnSpacing="5">
+                <!-- Заголовки -->
+                <Label Text="День" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" />
+                <Label Text="Час" FontAttributes="Bold" Grid.Row="0" Grid.Column="1" />
+                <Label Text="Викладач" FontAttributes="Bold" Grid.Row="0" Grid.Column="2" />
+                <Label Text="Кафедра" FontAttributes="Bold" Grid.Row="0" Grid.Column="3" />
+                <Label Text="Аудиторія" FontAttributes="Bold" Grid.Row="0" Grid.Column="4" />
+                <Label Text="Кількість студентів" FontAttributes="Bold" Grid.Row="0" Grid.Column="5" />
+            </Grid>
+        </ScrollView>
+
+        <!-- Кнопки для редагування та видалення --><!--
+        <HorizontalStackLayout>
+            <Button Text="Редагувати" Clicked="OnEditLectureClicked" />
+            <Button Text="Видалити" Clicked="OnDeleteLectureClicked" />
+        </HorizontalStackLayout>-->
+    </VerticalStackLayout>
+
+</ContentPage>
